@@ -1,0 +1,9 @@
+# Large originals / reference material — kept locally, not needed to build the site
+photos-original/
+screenshots/
+
+node_modules/
+dist/
+.vercel
+.env*
+.DS_Store

@@ -1,0 +1,249 @@
+.hero {
+  position: relative;
+  min-height: min(88vh, 820px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 78% 45%, #5a3a9c 0%, transparent 55%),
+    linear-gradient(135deg, var(--purple-950) 0%, var(--purple-800) 60%, #4b2f8a 100%);
+  isolation: isolate;
+}
+
+.hero__bg,
+.hero__overlay,
+.hero__glow {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__bg {
+  z-index: -3;
+}
+
+.hero__bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 1.4s ease,
+    transform 7s ease-out;
+}
+
+.hero__bg-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero__overlay {
+  z-index: -2;
+  background: linear-gradient(100deg, rgba(26, 12, 54, 0.92) 0%, rgba(42, 22, 84, 0.75) 50%, rgba(42, 22, 84, 0.35) 100%);
+}
+
+/* subtle light grid + “shine” */
+.hero__glow {
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 75% 50%, #000 0%, transparent 65%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 5rem 6rem;
+}
+
+.hero__content > * {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero__content > :nth-child(2) { animation-delay: 0.08s; }
+.hero__content > :nth-child(3) { animation-delay: 0.16s; }
+.hero__content > :nth-child(4) { animation-delay: 0.24s; }
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--gold-300);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero__eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.04;
+  margin: 1.1rem 0 1.4rem;
+  font-weight: 800;
+}
+
+.hero h1 em {
+  color: var(--gold-300);
+  font-style: italic;
+  position: relative;
+}
+
+.hero p {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 34rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+/* Emblem */
+.hero__emblem {
+  position: relative;
+  justify-self: center;
+  width: min(420px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.hero__emblem img {
+  width: 62%;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.06),
+    0 0 0 22px rgba(255, 255, 255, 0.03),
+    0 30px 80px rgba(0, 0, 0, 0.45);
+  animation: float 6s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__rays {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 10deg, rgba(232, 197, 120, 0.18) 10deg 14deg, transparent 14deg 30deg);
+  background-size: 100% 100%;
+  mask-image: radial-gradient(circle, transparent 38%, #000 40%, transparent 72%);
+  animation: spin 40s linear infinite;
+}
+
+.hero__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 30s linear infinite reverse;
+}
+
+.hero__ring text {
+  fill: var(--gold-300);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+
+/* Progress dots */
+.hero__dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hero__dots button {
+  width: 46px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.hero__dots button span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold-400);
+}
+
+.hero__dots button.is-active span {
+  animation: progress linear forwards;
+}
+
+@keyframes progress {
+  to { width: 100%; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-block: 3rem 5rem;
+    gap: 1.5rem;
+  }
+  .hero__emblem {
+    order: -1;
+    width: min(260px, 70vw);
+  }
+  .hero p {
+    margin-inline: auto;
+  }
+  .hero__actions,
+  .hero__eyebrow {
+    justify-content: center;
+  }
+  .hero__dots {
+    justify-content: center;
+  }
+  .hero__overlay {
+    background: linear-gradient(180deg, rgba(26, 12, 54, 0.75), rgba(26, 12, 54, 0.9));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__eyebrow::before {
+    display: none;
+  }
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__ring,
+  .hero__rays,
+  .hero__emblem img {
+    animation: none;
+  }
+}
