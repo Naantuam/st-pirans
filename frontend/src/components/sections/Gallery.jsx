@@ -10,8 +10,34 @@ import SectionHeading from '../ui/SectionHeading.jsx'
 import { galleryImages, galleryMixed, galleryCategories } from '../../utils/images.js'
 import './Gallery.css'
 
+/* Slides visible at each screen width (min-width → slides). Shared by Swiper and the "does it fit?" check. */
+const BREAKPOINTS = {
+  0: { slidesPerView: 1.25, spaceBetween: 16 },
+  480: { slidesPerView: 1.8, spaceBetween: 16 },
+  768: { slidesPerView: 2.6, spaceBetween: 20 },
+  1024: { slidesPerView: 3.6, spaceBetween: 24 },
+  1440: { slidesPerView: 4.6, spaceBetween: 24 },
+}
+
+const perViewFor = (width) =>
+  Object.entries(BREAKPOINTS).reduce((pv, [min, bp]) => (width >= Number(min) ? bp.slidesPerView : pv), 1)
+
+function useSlidesPerView() {
+  const [pv, setPv] = useState(() => perViewFor(window.innerWidth))
+  useEffect(() => {
+    const onResize = () => setPv(perViewFor(window.innerWidth))
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  return pv
+}
+
 export default function Gallery() {
-  const [filter, setFilter] = useState('all')
+  // ?gallery=music opens the gallery on one skill (handy for sharing links)
+  const [filter, setFilter] = useState(() => {
+    const q = new URLSearchParams(window.location.search).get('gallery')
+    return galleryCategories.some((c) => c.slug === q) ? q : 'all'
+  })
   const [active, setActive] = useState(null)
 
   const images = useMemo(
@@ -19,6 +45,11 @@ export default function Gallery() {
     [filter],
   )
   const count = images.length
+
+  // Only slide when the photos don't all fit on screen; only loop when there are enough to fill the loop.
+  const perView = useSlidesPerView()
+  const isSlider = count > Math.floor(perView)
+  const loop = count >= Math.ceil(perView) * 2 + 1
 
   // Skill cards elsewhere on the page can ask the gallery to filter itself.
   useEffect(() => {
@@ -44,6 +75,13 @@ export default function Gallery() {
 
   const current = active !== null ? images[active] : null
 
+  const renderCard = (img, i) => (
+    <button className="gallery__card" onClick={() => setActive(i)} aria-label={`Open photo: ${img.alt}`}>
+      <img src={img.src} alt={img.alt} loading="lazy" />
+      <span className="gallery__caption">{galleryCategories.find((c) => c.slug === img.category)?.title}</span>
+    </button>
+  )
+
   return (
     <section className="section gallery" id="gallery">
       <div className="container gallery__head">
@@ -52,7 +90,7 @@ export default function Gallery() {
           title="Our"
           highlight="Gallery"
         />
-        <div className="gallery__nav">
+        <div className={`gallery__nav ${isSlider ? '' : 'is-hidden'}`}>
           <button className="gallery__btn gallery__prev" aria-label="Previous photos">
             <Icon name="chevronLeft" size={22} />
           </button>
@@ -78,38 +116,39 @@ export default function Gallery() {
         </div>
       </div>
 
+      {isSlider ? (
       <Swiper
-        key={filter}
+        key={`${filter}-${loop}`}
         className="gallery__swiper"
         modules={[Autoplay, Navigation, Pagination, Keyboard, A11y]}
-        loop={count > 5}
-        centeredSlides={count > 2}
+        loop={loop}
+        centeredSlides
+        centeredSlidesBounds={!loop}
         grabCursor
         speed={700}
         spaceBetween={16}
-        slidesPerView={1.25}
+        slidesPerView={BREAKPOINTS[0].slidesPerView}
         autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
         keyboard={{ enabled: true }}
         navigation={{ prevEl: '.gallery__prev', nextEl: '.gallery__next' }}
         pagination={{ el: '.gallery__pagination', type: 'progressbar' }}
-        breakpoints={{
-          480: { slidesPerView: 1.8, spaceBetween: 16 },
-          768: { slidesPerView: 2.6, spaceBetween: 20 },
-          1024: { slidesPerView: 3.6, spaceBetween: 24 },
-          1440: { slidesPerView: 4.6, spaceBetween: 24 },
-        }}
+        breakpoints={BREAKPOINTS}
       >
         {images.map((img, i) => (
-          <SwiperSlide key={img.src}>
-            <button className="gallery__card" onClick={() => setActive(i)} aria-label={`Open photo: ${img.alt}`}>
-              <img src={img.src} alt={img.alt} loading="lazy" />
-              <span className="gallery__caption">{galleryCategories.find((c) => c.slug === img.category)?.title}</span>
-            </button>
-          </SwiperSlide>
+          <SwiperSlide key={img.src}>{renderCard(img, i)}</SwiperSlide>
         ))}
       </Swiper>
+      ) : (
+        <div className="container">
+          <div key={filter} className="gallery__grid" style={{ '--cols': count }}>
+            {images.map((img, i) => (
+              <div key={img.src}>{renderCard(img, i)}</div>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="container">
-        <div className="gallery__pagination" />
+        <div className={`gallery__pagination ${isSlider ? '' : 'is-hidden'}`} />
       </div>
 
       {current && (

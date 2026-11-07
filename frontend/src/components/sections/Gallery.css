@@ -93,6 +93,33 @@
   transform: scale(1);
 }
 
+/* Static layout for categories that fit on screen — centred, no sliding, no empty gaps */
+.gallery__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding-block: 0.5rem;
+  animation: fade 0.5s ease;
+}
+
+.gallery__grid > div {
+  flex: 0 1 calc((100% - 24px * (var(--cols) - 1)) / var(--cols));
+  max-width: 300px;
+}
+
+.gallery__nav.is-hidden,
+.gallery__pagination.is-hidden {
+  visibility: hidden;
+}
+
+@media (max-width: 560px) {
+  .gallery__grid > div {
+    max-width: 340px;
+    flex-basis: 100%;
+  }
+}
+
 .gallery__card {
   display: block;
   position: relative;
