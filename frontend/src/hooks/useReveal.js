@@ -1,13 +1,19 @@
 import { useEffect } from 'react'
 
-/* Adds `is-visible` to any `.reveal` element when it scrolls into view. */
+/*
+ * Adds `is-visible` to any `.reveal` element when it scrolls into view.
+ * Also watches for `.reveal` elements added later (e.g. a section re-rendering, or
+ * hot-reload during development) so nothing is ever left invisible.
+ */
 export default function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal')
+    const pending = () => document.querySelectorAll('.reveal:not(.is-visible)')
+
     if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'))
+      pending().forEach((el) => el.classList.add('is-visible'))
       return
     }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -19,7 +25,16 @@ export default function useReveal() {
       },
       { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
     )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
+
+    const observeAll = () => pending().forEach((el) => io.observe(el))
+    observeAll()
+
+    const mo = new MutationObserver(observeAll)
+    mo.observe(document.getElementById('root') ?? document.body, { childList: true, subtree: true })
+
+    return () => {
+      io.disconnect()
+      mo.disconnect()
+    }
   }, [])
 }
