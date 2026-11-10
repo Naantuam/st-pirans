@@ -4,6 +4,9 @@
   z-index: 50;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
+  /* The blur makes the mobile menu position against the navbar instead of the screen,
+     so clip sideways or the hidden off-screen menu widens the page on phones. */
+  overflow-x: clip;
   transition: box-shadow 0.3s ease;
 }
 
