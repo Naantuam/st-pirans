@@ -7,7 +7,7 @@ export const school = {
   name: "St. Piran's Anglican High School",
   shortName: "St. Piran's",
   location: 'Jos, Plateau State',
-  founded: 2006,
+  founded: 2004,
   motto: 'Let your light shine',
   fees: '₦160,000', // approximate school fees — TODO: confirm (per term / per session?)
   address: 'Zarazong, along Fobur Road, Jos, Plateau State, Nigeria',
@@ -40,7 +40,7 @@ export const whatsappLink = (intl, text = "Hello, I'd like to make an enquiry ab
 export const announcements = [
   'Admissions are now open - call or WhatsApp 0703 210 1964',
   'Skill Acquisition Programme hosted by Set 020 Elites - see the gallery',
-  'Over 700 students and counting since 2006',
+  'Over 700 students and counting since 2004',
   'Let your light shine - Matthew 5:16',
 ]
 
@@ -59,7 +59,7 @@ export const heroSlides = [
   {
     title: ['Raising Minds', 'that'],
     highlight: 'Shine',
-    text: 'Since 2006, a nurturing secondary school where academic excellence, strong character and faith come together to prepare every student for life.',
+    text: 'Since 2004, a nurturing secondary school where academic excellence, strong character and faith come together to prepare every student for life.',
   },
   {
     title: ['Discover Your', 'Unique'],
@@ -98,7 +98,7 @@ export const offerings = [
 
 export const welcome = {
   eyebrow: 'Welcome Address',
-  lead: "Since 2006, St. Piran's Anglican High School has raised well-rounded young people — sound in learning, strong in character and ready to let their light shine in the world.",
+  lead: "Since 2004, St. Piran's Anglican High School has raised well-rounded young people — sound in learning, strong in character and ready to let their light shine in the world.",
   paragraphs: [
     'Our aim is to provide a safe, disciplined and inspiring environment in which every child is known, encouraged and challenged to grow.',
     'From the first day of JSS 1 to graduation in SS 3, our teachers walk closely with students and parents through a continuous, nurturing educational journey.',
@@ -107,7 +107,7 @@ export const welcome = {
 }
 
 export const stats = [
-  { value: 2006, suffix: '', label: 'Year founded' },
+  { value: 2004, suffix: '', label: 'Year founded' },
   { value: 700, suffix: '+', label: 'Students' },
   { value: 8, suffix: '', label: 'Practical skills taught' },
   { value: 6, suffix: '', label: 'Year groups (JSS 1 – SS 3)' },

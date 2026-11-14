@@ -12,7 +12,7 @@ function Counter({ value, suffix }) {
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return
       io.disconnect()
-      // Years (e.g. 2006) count up from 20 years earlier instead of from 0
+      // Years (e.g. 2004) count up from 20 years earlier instead of from 0
       const from = value > 1900 ? value - 20 : 0
       const start = performance.now()
       const dur = 1600
