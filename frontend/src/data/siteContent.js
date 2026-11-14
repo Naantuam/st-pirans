@@ -38,10 +38,10 @@ export const whatsappLink = (intl, text = "Hello, I'd like to make an enquiry ab
   `https://wa.me/${intl}?text=${encodeURIComponent(text)}`
 
 export const announcements = [
-  'Admissions are now open — call or WhatsApp 0703 210 1964',
-  'Skill Acquisition Programme hosted by Set 020 Elites — see the gallery',
+  'Admissions are now open - call or WhatsApp 0703 210 1964',
+  'Skill Acquisition Programme hosted by Set 020 Elites - see the gallery',
   'Over 700 students and counting since 2006',
-  'Let your light shine — Matthew 5:16',
+  'Let your light shine - Matthew 5:16',
 ]
 
 export const navLinks = [
@@ -69,7 +69,7 @@ export const heroSlides = [
   {
     title: ['Learning that', 'Opens'],
     highlight: 'Doors',
-    text: 'Our Skill Acquisition Programme equips students with practical, real-world skills — from web development to catering and agriculture.',
+    text: 'Our Skill Acquisition Programme equips students with practical, real-world skills from web development to catering and agriculture.',
   },
 ]
 
