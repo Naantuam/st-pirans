@@ -7,6 +7,7 @@ import Welcome from './components/sections/Welcome.jsx'
 import Stats from './components/sections/Stats.jsx'
 import Skills from './components/sections/Skills.jsx'
 import Gallery from './components/sections/Gallery.jsx'
+import Faq from './components/sections/Faq.jsx'
 import CallToAction from './components/sections/CallToAction.jsx'
 import WhatsAppButton from './components/ui/WhatsAppButton.jsx'
 import useReveal from './hooks/useReveal.js'
@@ -25,6 +26,7 @@ export default function App() {
         <Stats />
         <Skills />
         <Gallery />
+        <Faq />
         <CallToAction />
       </main>
       <Footer />

@@ -1,63 +1,110 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NG">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>St. Piran's High School, Jos | Let Your Light Shine</title>
+    <!-- Primary Meta Tags -->
+    <title>St. Piran's Anglican High School | Jos</title>
+    <meta name="title" content="St. Piran's Anglican High School | Jos" />
     <meta
       name="description"
-      content="St. Piran's High School, Zarazong, Jos, Plateau State — a secondary school (JSS 1 – SS 3) since 2006 offering academic excellence, character building and a Skill Acquisition Programme. Admissions open."
+      content="Official website for St. Piran's Anglican High School in Jos, Plateau State. View our skills acquisition events, academic updates, and school gallery."
     />
     <meta
       name="keywords"
-      content="St. Piran's High School, St Pirans Jos, secondary school in Jos, schools in Plateau State, Zarazong, Fobur Road, admissions Jos"
+      content="St. Piran's Anglican High School, St Pirans Anglican High School Jos, St. Piran's High School, Anglican school Jos, secondary school in Jos, schools in Plateau State, Zarazong, Fobur Road, admissions Jos"
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="St. Piran's Anglican High School" />
     <meta name="theme-color" content="#3b2170" />
+    <meta name="geo.region" content="NG-PL" />
+    <meta name="geo.placename" content="Jos, Plateau State" />
     <link rel="canonical" href="%SITE_URL%/" />
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Icons: Google search results need a square icon sized in multiples of 48px -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Link previews (WhatsApp, Facebook, X) -->
+    <!-- Open Graph / Facebook / WhatsApp (Makes links look good when shared) -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="St. Piran's High School" />
-    <meta property="og:title" content="St. Piran's High School, Jos — Let Your Light Shine" />
+    <meta property="og:site_name" content="St. Piran's Anglican High School" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="St. Piran's Anglican High School | Jos" />
     <meta
       property="og:description"
-      content="Secondary school in Zarazong, Jos since 2006. Academic excellence, strong character and practical skills. Admissions open — call or WhatsApp 0703 210 1964."
+      content="Official website for St. Piran's Anglican High School in Jos, Plateau State."
     />
-    <meta property="og:url" content="%SITE_URL%/" />
     <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="St. Piran's Anglican High School badge and students, Jos" />
     <meta property="og:locale" content="en_NG" />
+
+    <!-- X / Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="St. Piran's Anglican High School | Jos" />
+    <meta
+      name="twitter:description"
+      content="Official website for St. Piran's Anglican High School in Jos, Plateau State."
+    />
     <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
 
     <!-- Structured data so Google understands this is a school -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "HighSchool",
-        "name": "St. Piran's High School",
-        "alternateName": "St. Piran's High School, Jos",
-        "slogan": "Let your light shine",
-        "foundingDate": "2006",
-        "url": "%SITE_URL%/",
-        "logo": "%SITE_URL%/apple-touch-icon.png",
-        "image": "%SITE_URL%/og-image.jpg",
-        "telephone": "+2347032101964",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Zarazong, along Fobur Road",
-          "addressLocality": "Jos",
-          "addressRegion": "Plateau State",
-          "addressCountry": "NG"
-        },
-        "sameAs": ["https://www.facebook.com/stpiranshighschoolzarazong/"],
-        "employee": [
-          { "@type": "Person", "name": "Olubodun Olayinka", "jobTitle": "Principal" },
-          { "@type": "Person", "name": "Vivian Austine", "jobTitle": "Vice Principal (Academics)" }
+        "@graph": [
+          {
+            "@type": "HighSchool",
+            "@id": "%SITE_URL%/#school",
+            "name": "St. Piran's Anglican High School",
+            "alternateName": [
+              "St Pirans Anglican High School",
+              "Saint Piran's Anglican High School",
+              "St. Piran's Anglican High School, Jos",
+              "St. Piran's Anglican High School, Zarazong",
+              "St. Piran's High School",
+              "St Pirans High School Jos",
+              "St. Piran's Zarazong"
+            ],
+            "description": "Anglican secondary school (JSS 1 – SS 3) in Zarazong, Jos, Plateau State, offering academic excellence, character building and a Skill Acquisition Programme.",
+            "slogan": "Let your light shine",
+            "foundingDate": "2006",
+            "url": "%SITE_URL%/",
+            "logo": { "@type": "ImageObject", "url": "%SITE_URL%/logo.png", "width": 600, "height": 600 },
+            "image": "%SITE_URL%/og-image.jpg",
+            "telephone": "+2347032101964",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Zarazong, along Fobur Road",
+              "addressLocality": "Jos",
+              "addressRegion": "Plateau State",
+              "addressCountry": "NG"
+            },
+            "areaServed": "Jos, Plateau State",
+            "contactPoint": [
+              { "@type": "ContactPoint", "telephone": "+2347032101964", "contactType": "admissions", "name": "Mr. Olubodun Olayinka (Principal)", "availableLanguage": "English" },
+              { "@type": "ContactPoint", "telephone": "+2348035235923", "contactType": "customer service", "name": "Mrs. Vivian Austine (Vice Principal, Academics)", "availableLanguage": "English" }
+            ],
+            "sameAs": ["https://www.facebook.com/stpiranshighschoolzarazong/"],
+            "employee": [
+              { "@type": "Person", "name": "Olubodun Olayinka", "jobTitle": "Principal" },
+              { "@type": "Person", "name": "Vivian Austine", "jobTitle": "Vice Principal (Academics)" }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "url": "%SITE_URL%/",
+            "name": "St. Piran's Anglican High School",
+            "alternateName": "St. Piran's High School, Jos",
+            "publisher": { "@id": "%SITE_URL%/#school" },
+            "image": "%SITE_URL%/logo.png",
+            "inLanguage": "en-NG"
+          }
         ]
       }
     </script>
@@ -72,7 +119,7 @@
   <body>
     <div id="root"></div>
     <noscript>
-      St. Piran's High School, Zarazong, along Fobur Road, Jos, Plateau State. Call or WhatsApp 0703 210 1964 or
+      St. Piran's Anglican High School, Zarazong, along Fobur Road, Jos, Plateau State. Call or WhatsApp 0703 210 1964 or
       0803 523 5923.
     </noscript>
     <script type="module" src="/src/main.jsx"></script>

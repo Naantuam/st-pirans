@@ -23,7 +23,7 @@ const perViewFor = (width) =>
   Object.entries(BREAKPOINTS).reduce((pv, [min, bp]) => (width >= Number(min) ? bp.slidesPerView : pv), 1)
 
 function useSlidesPerView() {
-  const [pv, setPv] = useState(() => perViewFor(window.innerWidth))
+  const [pv, setPv] = useState(() => perViewFor(typeof window === 'undefined' ? 0 : window.innerWidth))
   useEffect(() => {
     const onResize = () => setPv(perViewFor(window.innerWidth))
     window.addEventListener('resize', onResize)
@@ -35,6 +35,7 @@ function useSlidesPerView() {
 export default function Gallery() {
   // ?gallery=music opens the gallery on one skill (handy for sharing links)
   const [filter, setFilter] = useState(() => {
+    if (typeof window === 'undefined') return 'all'
     const q = new URLSearchParams(window.location.search).get('gallery')
     return galleryCategories.some((c) => c.slug === q) ? q : 'all'
   })

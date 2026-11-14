@@ -174,11 +174,35 @@
 }
 
 @media (max-width: 420px) {
+  /* Let the full school name shrink and wrap on small phones instead of pushing past the edge */
+  .brand {
+    flex-shrink: 1;
+    min-width: 0;
+    gap: 0.6rem;
+  }
   .brand img {
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
   }
   .brand__text strong {
-    font-size: 1rem;
+    font-size: clamp(0.92rem, 4.2vw, 1rem);
+  }
+  .brand__text small {
+    font-size: 0.66rem;
+  }
+}
+
+/* Small laptops: tighten the links so the full menu + Apply button fit */
+@media (min-width: 1081px) and (max-width: 1260px) {
+  .navbar__menu {
+    gap: 0.75rem;
+  }
+  .navbar__menu ul a {
+    padding-inline: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+  .brand__text strong {
+    font-size: 1.05rem;
   }
 }

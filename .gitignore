@@ -4,6 +4,7 @@ screenshots/
 
 node_modules/
 dist/
+dist-ssr/
 .vercel
 .env*
 .DS_Store

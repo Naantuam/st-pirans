@@ -4,15 +4,9 @@ import { defineConfig } from 'vite'
 /*
  * The public web address of the site, used for Google (sitemap, canonical link)
  * and link previews on WhatsApp / Facebook.
- * - Set SITE_URL yourself (e.g. in Vercel → Settings → Environment Variables), or
- * - on Vercel it falls back to the project's production domain automatically
- *   (your custom domain once it's connected, otherwise the .vercel.app address).
+ * Defaults to the school's domain; override with the SITE_URL environment variable if it ever changes.
  */
-const SITE_URL = (
-  process.env.SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'http://localhost:4173'
-).replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://st-piransanglicanhigh.school').replace(/\/$/, '')
 
 function seoFiles() {
   return {

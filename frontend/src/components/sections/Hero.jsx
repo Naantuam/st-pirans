@@ -36,12 +36,13 @@ export default function Hero() {
 
       <div className="container hero__inner">
         <div className="hero__content" key={index}>
-          <span className="hero__eyebrow">{slide.eyebrow}</span>
-          <h1>
+          {/* The school's official name is the page's one H1, so Google ties the site to it */}
+          <h1 className="hero__eyebrow">{school.name}, Jos</h1>
+          <h2 className="hero__title">
             {slide.title[0]}
             <br />
             {slide.title[1]} <em>{slide.highlight}</em>
-          </h1>
+          </h2>
           <p>{slide.text}</p>
           <div className="hero__actions">
             <a href="#contact" className="btn btn--gold">

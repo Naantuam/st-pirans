@@ -4,7 +4,7 @@
  */
 
 export const school = {
-  name: "St. Piran's High School",
+  name: "St. Piran's Anglican High School",
   shortName: "St. Piran's",
   location: 'Jos, Plateau State',
   founded: 2006,
@@ -34,7 +34,7 @@ export const contacts = [
   },
 ]
 
-export const whatsappLink = (intl, text = "Hello, I'd like to make an enquiry about St. Piran's High School.") =>
+export const whatsappLink = (intl, text = "Hello, I'd like to make an enquiry about St. Piran's Anglican High School.") =>
   `https://wa.me/${intl}?text=${encodeURIComponent(text)}`
 
 export const announcements = [
@@ -50,25 +50,23 @@ export const navLinks = [
   { label: 'Academics', href: '#offerings' },
   { label: 'Skills', href: '#skills' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 
 /* Hero copy rotates with the hero images (src/assets/hero). */
 export const heroSlides = [
   {
-    eyebrow: "Welcome to St. Piran's, Jos",
     title: ['Raising Minds', 'that'],
     highlight: 'Shine',
     text: 'Since 2006, a nurturing secondary school where academic excellence, strong character and faith come together to prepare every student for life.',
   },
   {
-    eyebrow: 'Talent & Creativity',
     title: ['Discover Your', 'Unique'],
     highlight: 'Gift',
     text: 'From music to fashion design and photography, our students are encouraged to explore their talents beyond the classroom.',
   },
   {
-    eyebrow: 'Skills for Life',
     title: ['Learning that', 'Opens'],
     highlight: 'Doors',
     text: 'Our Skill Acquisition Programme equips students with practical, real-world skills — from web development to catering and agriculture.',
@@ -100,7 +98,7 @@ export const offerings = [
 
 export const welcome = {
   eyebrow: 'Welcome Address',
-  lead: "Since 2006, St. Piran's High School has raised well-rounded young people — sound in learning, strong in character and ready to let their light shine in the world.",
+  lead: "Since 2006, St. Piran's Anglican High School has raised well-rounded young people — sound in learning, strong in character and ready to let their light shine in the world.",
   paragraphs: [
     'Our aim is to provide a safe, disciplined and inspiring environment in which every child is known, encouraged and challenged to grow.',
     'From the first day of JSS 1 to graduation in SS 3, our teachers walk closely with students and parents through a continuous, nurturing educational journey.',
@@ -132,4 +130,32 @@ export const skills = [
   { slug: 'nails-and-hairstyle', title: 'Nails & Hairstyle', text: 'Nail care, nail art and hair styling.' },
   { slug: 'barbing', title: 'Barbing', text: 'Clipper skills, grooming and hygiene.' },
   { slug: 'music', title: 'Music', text: 'Guitar, bass, keyboard and drums.' },
+]
+
+/* Questions parents search for. Also published as FAQ structured data for Google. */
+export const faqs = [
+  {
+    q: "Where is St. Piran's Anglican High School located?",
+    a: "St. Piran's Anglican High School is in Zarazong, along Fobur Road, Jos, Plateau State, Nigeria.",
+  },
+  {
+    q: "Is St. Piran's High School the same as St. Piran's Anglican High School?",
+    a: "Yes. St. Piran's Anglican High School is the official name. Many people also call us St. Piran's High School, St Pirans Jos or St. Piran's Zarazong.",
+  },
+  {
+    q: "What classes does the school offer?",
+    a: 'We are a secondary school running JSS 1 to SS 3, preparing students for WAEC, NECO and beyond.',
+  },
+  {
+    q: "How do I apply for admission to St. Piran's Anglican High School?",
+    a: 'Admissions are open. Call or WhatsApp the Principal, Mr. Olubodun Olayinka, on 0703 210 1964, or the Vice Principal (Academics), Mrs. Vivian Austine, on 0803 523 5923.',
+  },
+  {
+    q: 'How much are the school fees?',
+    a: 'School fees are about ₦160,000. Please call or WhatsApp the school for the current breakdown.',
+  },
+  {
+    q: 'What practical skills do students learn?',
+    a: 'Our Skill Acquisition Programme, hosted by Set 020 Elites, covers agric, web development, photography, fashion design, catering, nails and hairstyle, barbing and music.',
+  },
 ]

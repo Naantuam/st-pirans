@@ -23,7 +23,7 @@ export const galleryImages = Object.entries(galleryModules)
   .map(([path, src]) => {
     const parts = path.split('/')
     const category = parts.length > 4 ? parts[parts.length - 2] : 'highlights'
-    return { src, category, alt: `${titleFor(category)} — Skill Acquisition Programme` }
+    return { src, category, alt: `${titleFor(category)} — Skill Acquisition Programme at St. Piran's Anglican High School, Jos` }
   })
 
 /* Categories in the order the skills are listed, then any extra folders. */
